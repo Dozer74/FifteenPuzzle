@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Linq;
+using System.Windows;
 using FifteenPuzzle.AI;
 using FifteenPuzzle.Helpers;
 using NUnit.Framework;
@@ -28,5 +29,22 @@ namespace FifteenPuzzle.Tests
         {
             return Utils.CheckBounds(new Point(x, y));
         }
+
+        [TestCase(0,0, Result = "4 2")]
+        [TestCase(2, 2, Result = "6 8")]
+        [TestCase(1, 1, Result = "2 8 4 6")]
+        public string return_near_cells(int x, int y)
+        {
+            int[,] board =
+            {
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 0}
+            };
+            var result =
+                Utils.GetNearCell(new Point(x, y), board).Select(s => string.Format("{0}", board[(int) s.X, (int) s.Y]));
+
+            return string.Join(" ", result);
+        } 
     }
 }

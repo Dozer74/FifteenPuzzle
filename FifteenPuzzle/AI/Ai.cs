@@ -12,7 +12,7 @@ namespace FifteenPuzzle.AI
     {
         private static readonly Board Board = Board.Instance;
         private static int minPrevIteration, deepness;
-        private static Stack<Direction> resultStack;
+        private static Stack<Direction> wayStack;
         private static int[] goalX, goalY;
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace FifteenPuzzle.AI
             goalY = new int[Board.BlocksCount];
             InitGoalArrays();
 
-            resultStack = new Stack<Direction>();
+            wayStack = new Stack<Direction>();
             result = null;
 
             if (!IsSolvable(startBoard))
@@ -39,7 +39,7 @@ namespace FifteenPuzzle.AI
             if (!IdaStar())
                 return SolvingResult.IdaStarError;
 
-            result = resultStack.ToArray();
+            result = wayStack.ToArray();
             return SolvingResult.SolveFound;
         }
 
@@ -172,7 +172,7 @@ namespace FifteenPuzzle.AI
                     Board.Swap(currentCell, newCell);
                     if (res)
                     {
-                        resultStack.Push(moveDirections[i]);
+                        wayStack.Push(moveDirections[i]);
                         return true;
                     }
                 }
