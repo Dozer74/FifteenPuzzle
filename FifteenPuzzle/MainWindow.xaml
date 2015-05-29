@@ -1,0 +1,31 @@
+﻿<Window x:Class="FifteenPuzzle.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="FifteenPuzzle" Height="605" Width="600" ResizeMode="NoResize" Loaded="Window_Loaded">
+	<Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="523*" />
+			<RowDefinition Height="54*" />
+		</Grid.RowDefinitions>
+		<Canvas Name="BoardCanvas" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" Height="500"
+		        Width="500" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" />
+		<Button x:Name="BtnStart" Click="BtnStart_OnClick" Content="Поехали!" Grid.Row="1" HorizontalAlignment="Left"
+		        VerticalAlignment="Center" Width="90" Height="24" Margin="188,0,0,0" />
+		<ComboBox x:Name="CbBoardSize" DropDownClosed="CbBoardSize_OnDropDownClosed" HorizontalAlignment="Left"
+		          Margin="90,0,0,0" Grid.Row="1" VerticalAlignment="Center" Width="55" SelectedIndex="1">
+			<ListBoxItem Content="3 x 3" Tag="3" />
+			<ListBoxItem Content="4 x 4" Tag="4" />
+		</ComboBox>
+		<TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Создать новое поле:"
+		           VerticalAlignment="Center" Height="35" TextAlignment="Center" Width="75" Grid.Row="1" />
+		<TextBlock Margin="414.407,0,107,0" Grid.Row="1" TextWrapping="Wrap" Text="Скорость анимации:"
+		           VerticalAlignment="Center" UseLayoutRounding="False" TextAlignment="Center" />
+		<Slider x:Name="SlAnimSpeed" Minimum="100" Value="250" Maximum="400" TickFrequency="50" IsSnapToTickEnabled="True"
+		        HorizontalAlignment="Right" Margin="0,0,12,0" Grid.Row="1" VerticalAlignment="Center" Width="90" />
+		<Button x:Name="BtnReset" Click="BtnReset_OnClick" IsEnabled="False" Content="Заново" Grid.Row="1"
+		        HorizontalAlignment="Left" VerticalAlignment="Center" Width="90" Height="24" Margin="295,0,0,0" />
+	</Grid>
+</Window>
