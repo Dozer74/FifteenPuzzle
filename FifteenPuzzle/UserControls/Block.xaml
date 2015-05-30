@@ -7,7 +7,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="100">
     <Grid>
-        <Border Name="Border" BorderThickness="2" BorderBrush="Black">
+        <Border Name="Border" BorderThickness="2" BorderBrush="Black" Margin="2" CornerRadius="10">
+            <Border.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="#FFDEDEDE" Offset="1"/>
+                </RadialGradientBrush>
+            </Border.Background>
             <TextBlock Name="TbNumber" VerticalAlignment="Center" HorizontalAlignment="Center" Text="15" FontFamily="Calibri Light" FontSize="64"/>
         </Border>
     </Grid>

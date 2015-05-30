@@ -11,7 +11,7 @@
 			<RowDefinition Height="54*" />
 		</Grid.RowDefinitions>
 		<Canvas Name="BoardCanvas" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" Height="500"
-		        Width="500" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" />
+		        Width="500" />
 		<Button x:Name="BtnStart" Click="BtnStart_OnClick" Content="Поехали!" Grid.Row="1" HorizontalAlignment="Left"
 		        VerticalAlignment="Center" Width="90" Height="24" Margin="188,0,0,0" />
 		<ComboBox x:Name="CbBoardSize" DropDownClosed="CbBoardSize_OnDropDownClosed" HorizontalAlignment="Left"
